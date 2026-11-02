@@ -74,18 +74,38 @@
       position: relative;
     }
 
-    /* Fondo cinematográfico con desenfoque de movimiento y luces bokeh */
+    /* Capa de fondo 1: Base oscura profunda */
+    .bg-base {
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      background-color: #0A1116;
+    }
+
+    /* Capa de fondo 2: Ilustración arquitectónica del salón en líneas luminosas y definidas */
+    .bg-salon-art {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background-image: url('bg.jpg');
+      background-position: center 15%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      filter: invert(1) brightness(0.8) contrast(180%);
+      opacity: 0.82;
+      pointer-events: none;
+    }
+
+    /* Capa de fondo 3: Iluminación atmosférica, calidez de salón y viñeta cinematográfica */
     .bg-cinematic {
       position: fixed;
       inset: 0;
-      z-index: 0;
+      z-index: -1;
       background: 
-        radial-gradient(circle at 80% 20%, rgba(245, 176, 65, 0.22) 0%, transparent 50%),
-        radial-gradient(circle at 15% 75%, rgba(56, 189, 248, 0.18) 0%, transparent 45%),
-        radial-gradient(circle at 50% 50%, rgba(20, 35, 45, 0.8) 0%, #0A1116 100%),
-        url('bg.jpg') center center / cover no-repeat;
+        radial-gradient(circle at 75% 15%, rgba(245, 176, 65, 0.40) 0%, transparent 55%),
+        radial-gradient(circle at 20% 65%, rgba(56, 189, 248, 0.25) 0%, transparent 50%),
+        radial-gradient(circle at 50% 40%, rgba(13, 22, 28, 0.35) 0%, rgba(10, 17, 22, 0.82) 75%, #070B0E 100%);
       pointer-events: none;
-      filter: contrast(105%) brightness(95%);
     }
 
     /* Granulado fotográfico ultra suave */
@@ -185,8 +205,8 @@
        ========================================================================== */
     .glass-card {
       background: var(--glass-surface);
-      backdrop-filter: blur(28px) saturate(190%);
-      -webkit-backdrop-filter: blur(28px) saturate(190%);
+      backdrop-filter: blur(14px) saturate(180%);
+      -webkit-backdrop-filter: blur(14px) saturate(180%);
       border: 1px solid var(--glass-border);
       border-top: 1.5px solid var(--glass-border-highlight);
       border-left: 1.2px solid rgba(255, 255, 255, 0.28);
@@ -532,8 +552,8 @@
     .save-contact-glass-btn {
       width: 100%;
       background: rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(28px) saturate(190%);
-      -webkit-backdrop-filter: blur(28px) saturate(190%);
+      backdrop-filter: blur(14px) saturate(180%);
+      -webkit-backdrop-filter: blur(14px) saturate(180%);
       border: 1px solid rgba(255, 255, 255, 0.25);
       border-top: 1.5px solid rgba(255, 255, 255, 0.5);
       border-radius: var(--radius-lg);
@@ -577,8 +597,8 @@
     .email-glass-btn {
       width: 100%;
       background: rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(28px) saturate(190%);
-      -webkit-backdrop-filter: blur(28px) saturate(190%);
+      backdrop-filter: blur(14px) saturate(180%);
+      -webkit-backdrop-filter: blur(14px) saturate(180%);
       border: 1px solid rgba(255, 255, 255, 0.25);
       border-top: 1.5px solid rgba(255, 255, 255, 0.5);
       border-radius: var(--radius-lg);
@@ -1051,7 +1071,9 @@
 </head>
 <body>
 
-  <!-- Fondo cinematográfico dinámico & grano analógico -->
+  <!-- Capas de fondo arquitectónico de peluquería & iluminación -->
+  <div class="bg-base"></div>
+  <div class="bg-salon-art"></div>
   <div class="bg-cinematic"></div>
   <div class="bg-noise"></div>
 
